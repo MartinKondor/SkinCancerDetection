@@ -8,20 +8,36 @@
     <meta name="author" content="Martin Kondor">
     
     <title>Skin Cancer Detection</title>
-    
+
+    <!-- Icons -->
     <link rel="icon" sizes="115x93" href="https://martinkondor.github.io/img/icon.bmp">
     <link rel="shortcut icon" sizes="115x93" href="https://martinkondor.github.io/img/icon.bmp">
     <link rel="apple-touch-icon" sizes="115x93" href="https://martinkondor.github.io/img/icon.bmp">
-    <link rel="stylesheet" href="public/css/libs/bootstrap-4.3.1.min.css">
+    <!-- / Icons -->
 
-    <!-- Public sources -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="public/css/libs/bootstrap-4.3.1.min.css">
     <link href="public/css/main.css" rel="stylesheet">
+    <!-- / Styles -->
 
 </head>
 <body>
     <div class="container-fluid text-center mt-5">
-        <p>Content here</p>
-        
+        <div id="inputs">
+            <label class="btn btn-block btn-outline-primary">
+                Upload an image for verification
+                <input id="file-input" accept="image/*" type="file" onchange="processInput(this)" hidden>
+            </label>
+        </div>
+        <br>
+
+        <!--<div id="board" class="mb-4"></div>-->
+
+        <div id="loading" class="text-center mt-3">
+            <div class="spinner-grow text-info" role="status"></div>
+            <span class="text-dark"> Loading the model ...</span>
+        </div>
+
         <footer class="footer mt-5">
             <p class="small">
                 This project is made by <a href="https://MartinKondor.github.io/">Martin Kondor</a>,
@@ -30,9 +46,11 @@
         </footer>
     </div>
 
+    <!-- Scripts -->
     <script src="public/js/libs/tf-1.0.0.min.js"></script>
-    <!--<script src="public/js/libs/p5-0.8.0.min.js"></script>-->
+    <!--<script src="public/js/libs/p5-0.8.0.min.js"></script> -->
     <script src="public/js/main.js"></script>
+    <!-- / Scripts -->
 
 </body>
 </html>

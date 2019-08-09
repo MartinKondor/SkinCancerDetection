@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 
+html,
 body {
     margin: 0;
     padding: 10px;
@@ -8,4 +9,18 @@ body {
     width: 100%;
     overflow-x: hidden;
     background: #fff;
+}
+
+label,
+button {
+    border-radius: 0px !important;
+}
+
+/* Set to invisible by default */
+#inputs {
+    display: none;
+}
+
+#file-input:hover {
+    cursor: pointer;
 }

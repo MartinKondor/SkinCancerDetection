@@ -1,19 +1,60 @@
 'use strict';
+let MODEL = null;
+const screenWidth = 224;
+const screenHeight = 224;
+let imgShape = [224, 224, 3];
+let fileReader = new FileReader();
 
-// Define a model for linear regression.
-const model = tf.sequential();
-model.add(tf.layers.dense({units: 1, inputShape: [1]}));
 
-model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+(async () => {
+    // MODEL = await tf.loadLayersModel('https://raw.githubusercontent.com/MartinKondor/SkinCancerDetection/master/trained/model.json');
 
-// Generate some synthetic data for training.
-const xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);
-const ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);
+    // Notify the end of loading
+    let e = document.getElementById('loading');
+    e.style.display = 'none';
 
-// Train the model using the data.
-model.fit(xs, ys, {epochs: 10}).then(() => {
-  // Use the model to do inference on a data point the model hasn't seen before:
-  model.predict(tf.tensor2d([5], [1, 1])).print();
-  // Open the browser devtools to see the output
-});
+    // Show the input fields after loading
+    e = document.getElementById('inputs');
+    e.style.display = 'block';
+})();
 
+
+// Event handler
+function processInput(input) {
+    if (!input.files || !input.files[0]) return null;
+    let print = console.log;
+
+    // Read in the file
+    fileReader.onload = function (e) {
+        let array = new Uint8Array(this.result);
+        let _dim = Math.round(array.length ** 0.5);
+        let shape = [_dim, _dim];
+        let new_array = [];
+        let row = [];
+
+        // console.log(shape, array.length);
+
+        for (let i = 0; i < array.length; i++) {
+            row.push(array[i]);
+
+            if (row.length >= _dim[0]) {
+                new_array.push(row);
+                row = [];
+            }
+        }
+
+        console.log(new_array);
+
+        /*
+        let tensor = tf.tensor(Array.from(new Uint8Array(this.result)));
+
+        // tensor = tf.image.resizeBilinear(tensor, imgShape);
+        // tensor = tf.cast(tensor, 'float32');
+        // tensor = tensor.reshape(imgShape);
+
+        console.log(tensor);
+        */
+    }
+    // fileReader.readAsDataURL(input.files[0]);
+    fileReader.readAsArrayBuffer(input.files[0]);
+}
