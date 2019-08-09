@@ -1,15 +1,14 @@
 # SkinCancerDetection
 
-Ported to frontend.
+Skin cancer detection from browser.
 
-## Steps of encoding model
+## Steps
 
-First, run:
+Encode the trained keras model:
 
 ```
-python encoder/encoder.py trained/model.h5
+tensorflowjs_converter --input_format keras trained/model.h5 trained
 ```
 
-This will save the model as `trained/model.bin`.
 
 
