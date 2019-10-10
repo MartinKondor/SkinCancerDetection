@@ -16,11 +16,15 @@ button {
     border-radius: 0px !important;
 }
 
+#file-input:hover {
+    cursor: pointer;
+}
+
 /* Set to invisible by default */
 #inputs {
     display: none;
 }
 
-#file-input:hover {
-    cursor: pointer;
+#loading-data {
+    display: none;
 }

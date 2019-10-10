@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,20 +23,27 @@
 
 </head>
 <body>
+
     <div class="container-fluid text-center mt-5">
+        <div id="prediction" class="h3 text-dark mt-3 mb-3 ml-3 mr-3"></div>
+        <br>
+    
         <div id="inputs">
-            <label class="btn btn-block btn-outline-primary">
+            <label class="btn btn-outline-primary">
                 Upload an image for verification
                 <input id="file-input" accept="image/*" type="file" onchange="processInput(this)" hidden>
             </label>
         </div>
         <br>
 
-        <!--<div id="board" class="mb-4"></div>-->
-
         <div id="loading" class="text-center mt-3">
             <div class="spinner-grow text-info" role="status"></div>
             <span class="text-dark"> Loading the model ...</span>
+        </div>
+        
+        <div id="loading-data" class="text-center mt-3">
+            <div class="spinner-grow text-warning" role="status"></div>
+            <span class="text-dark"> Thinking ...</span>
         </div>
 
         <footer class="footer mt-5">
@@ -48,7 +56,6 @@
 
     <!-- Scripts -->
     <script src="public/js/libs/tf-1.0.0.min.js"></script>
-    <!--<script src="public/js/libs/p5-0.8.0.min.js"></script> -->
     <script src="public/js/main.js"></script>
     <!-- / Scripts -->
 
