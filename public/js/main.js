@@ -71,7 +71,7 @@ async function processInput(input) {
             malignant - 1
             benign - 0
             */
-            if (x[0] == 1) {
+            if (x[0] != 1) {
                 predictionElement.innerHTML = basicPredictionMsg + '<span class="text-danger"> Malignant</span>';
             }
             else {
